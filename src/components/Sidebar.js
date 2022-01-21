@@ -1,5 +1,7 @@
 import React from 'react';
+import CreateRoomBtnModal from './dashboard/CreateRoomBtnModal';
 import DashboardToggle from './dashboard/DashboardToogle';
+import ChatRoomList from './rooms/ChatRoomList';
 
 const Sidebar = () => {
     return (
@@ -7,9 +9,10 @@ const Sidebar = () => {
 
             <div>
                <DashboardToggle />
+               <CreateRoomBtnModal />
             </div>
 
-            bottom
+            <ChatRoomList />
 
         </div>
     );
