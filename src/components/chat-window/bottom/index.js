@@ -63,7 +63,7 @@ const onSendClick = async() => {
 };
 
 const onKeyDown = (ev) => {
-  if(ev.KeyCode === 13) {
+  if(ev.keyCode === 13) {
     ev.preventDefault();
     onSendClick();
   }
