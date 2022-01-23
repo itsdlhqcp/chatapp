@@ -48,7 +48,7 @@ const Dashboard = ({onSignOut}) => {
         <AvatarUploadBtn />
     </Drawer.Body>
     <Drawer.Footer>
-        <Button block color='red' onClick={onSignOut} />
+        <Button oval className='bold' color='red' onClick={onSignOut} />
         Sign out
     </Drawer.Footer>
     </>
