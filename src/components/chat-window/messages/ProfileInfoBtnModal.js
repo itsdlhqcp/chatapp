@@ -7,7 +7,7 @@ import ProfileAvatar from '../../ProfileAvatar';
 
 
 
-const ProfileInfoBtnModal = ({profile }) => {
+const ProfileInfoBtnModal = ({profile, children }) => {
     const { isOpen, close,open} = useModalState()
 
     const { name, avatar, createdAt} = profile;
@@ -38,6 +38,7 @@ const ProfileInfoBtnModal = ({profile }) => {
 
           </Modal.Body>
           <Modal.Footer>
+              {children}
               <Button block onClick={close}>
                   Close</Button>
           </Modal.Footer>
