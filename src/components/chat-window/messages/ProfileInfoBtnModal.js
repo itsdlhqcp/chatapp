@@ -4,26 +4,27 @@ import { useModalState } from '../../../misc/custom-hooks';
 import ProfileAvatar from '../../ProfileAvatar';
 
 
+const ProfileInfoBtnModal = ({profile, children,...btnProps }) => {
 
 
 
-const ProfileInfoBtnModal = ({profile, children }) => {
     const { isOpen, close,open} = useModalState()
 
     const { name, avatar, createdAt} = profile;
 
-    const shortName = profile.name.split('')[0];   
+    const shortName = profile.name.split(' ')[0];   
 
     const memberSince = new Date(createdAt).toLocaleDateString();
-  return <div>
-      <Button  onClick={open}>
-          {shortName}
+  return (
+  <>
+      <Button {...btnProps} onClick={open}>
+      {shortName}
       </Button>
       <Modal show={isOpen} onHide={close}>
 
           <Modal.Header>
               <Modal.Title>
-                  {shortName} profile
+              {shortName} profile
               </Modal.Title>
           </Modal.Header>
           <Modal.Body className='text-center'>
@@ -46,7 +47,8 @@ const ProfileInfoBtnModal = ({profile, children }) => {
 
 
       </Modal>
-  </div>;
+  </>
+  );
 };
 
 export default ProfileInfoBtnModal;
