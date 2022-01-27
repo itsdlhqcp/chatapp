@@ -12,7 +12,11 @@ import ImgBtnModal from './ImgBtnModal';
 
 
 
+
+
 const renderFileMessage = (file) => {
+
+
     if(file.contentType.includes('image')) {
   return (
      <div className="height-220">
@@ -21,9 +25,33 @@ const renderFileMessage = (file) => {
   );
 }
 
+
+
+   if(file.contentType.includes('video')) {
+
+  return ( 
+        
+        // eslint-disable-next-line jsx-a11y/media-has-caption
+        <video controls className='height-220'>
+    <source src={file.url} type="audio/mp3" />
+    video element unsupported
+  </video>
+  
+  );
+}
+  
+
+if(file.contentType.includes('audio')) {
+  // eslint-disable-next-line jsx-a11y/media-has-caption
+  return ( <audio controls>
+    <source src={file.url} type="audio/mp3" />
+    Audio element unsupported
+  </audio>
+  );
+}
+
   return <a href={file.url}>Download {file.name} </a>;
 };
-
 
 
 const MessageItem = ({message, handleAdmin, handleLike,handleDelete}) => {
@@ -85,13 +113,20 @@ const MessageItem = ({message, handleAdmin, handleLike,handleDelete}) => {
          onclick={()=> handleLike(message.id)}
          badgeContent={likeCount}
          />
+         
+         
+         
+
+
+
+
 
          { isAuthor && ( 
          <IconBtnControl
          isVisible={canShowIcons}
          iconName="close"
          tooltip="Delete this message" 
-         onclick={()=> handleDelete(message.id)}
+         onclick={()=> handleDelete(message.id, file)}
          />
 
 

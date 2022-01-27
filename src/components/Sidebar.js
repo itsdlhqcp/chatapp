@@ -24,8 +24,9 @@ const Sidebar = () => {
             </div>
         
             <ChatRoomList aboveElHeight={height} />
-
+            
         </div>
+        
     );
 };
 

@@ -5,7 +5,7 @@ import { useModalState } from '../../../misc/custom-hooks';
 import { storage } from '../../../misc/firebase';
 
  
-const MAX_FILE_SIZE = 1000 * 1024 * 5 ;
+const MAX_FILE_SIZE = 1000 * 1024 * 20 ;
 
 const AttachmentBtnModel = ({ afterUpload }) => {
   const { chatId } = useParams()

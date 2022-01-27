@@ -1,5 +1,5 @@
 import React from 'react';
-import { Loader, Nav } from 'rsuite';
+import {  Divider, Loader, Nav } from 'rsuite';
 import { Link, useLocation } from 'react-router-dom';
 import RoomItem from './RoomItem';
 import { useRooms } from '../../context/rooms.context';
@@ -16,6 +16,7 @@ const location = useLocation();
     appearance="subtle"
     vertical
     reversed
+    
     className="overflow-y-scroll custom-scroll"
     style={{
       height: `calc(100% - ${aboveElHeight}px)`,
@@ -27,6 +28,7 @@ const location = useLocation();
         )}
         {rooms && rooms.length > 0 && rooms.map(room =>
           (<Nav.Item 
+            
                  componentClass={Link} 
                  to={`/chat/${room.id}`}
                  key={room.id}
@@ -34,6 +36,7 @@ const location = useLocation();
                >
      
       <RoomItem room={room}/>
+      <Divider />
     </Nav.Item>))}
   </Nav>
   );

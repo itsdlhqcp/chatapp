@@ -10,7 +10,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-color: #fcfcfc;
+  background-color: #1d443c;
 }
 
 html,
@@ -26,7 +26,7 @@ body,
   }
 
   &::-webkit-scrollbar-track {
-    background: #ddd;
+    background: rgb(177, 77, 77);
   }
 
   &::-webkit-scrollbar-thumb {
@@ -53,6 +53,7 @@ body,
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background: rgba(170, 170, 170, 0.959);
 }
 
 $chat-t: 75px;
@@ -60,20 +61,27 @@ $chat-b: 65px;
 
 .chat-top {
   height: $chat-t;
+  background: rgba(156, 156, 156, 0.959);
+  border-radius: 1mm;
 }
 
 .chat-bottom {
   height: $chat-b;
+  border-radius: 1mm;
+  background: rgba(78, 47, 47, 0.959);
 }
 
 .chat-middle {
   height: calc(100% - #{$chat-t} - #{$chat-b});
+  background: rgba(136, 24, 43, 0.959);
+  border-radius: 1mm;
 }
 
 .msg-list {
   padding: 0;
   margin: 0;
   height: 100%;
+  background: rgba(255, 254, 254, 0.959);
   overflow-y: auto;
   list-style-type: none;
   li {
@@ -86,7 +94,7 @@ $chat-b: 65px;
 
 .animate-blink {
   animation: blink normal 1.5s infinite ease-in-out;
-  color: red !important;
+  color: rgb(19, 19, 19) !important;
   @keyframes blink {
     0% {
       opacity: 1;
