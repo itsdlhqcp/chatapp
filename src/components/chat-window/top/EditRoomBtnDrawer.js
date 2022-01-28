@@ -33,7 +33,8 @@ const EditRoomBtnDrawer = () => {
     }
 
 
-  return (<div>
+  return (
+  <>
       <Button className='Typeicons' size="sm" color='red' onClick={open} >
           A
       </Button>
@@ -69,7 +70,7 @@ const EditRoomBtnDrawer = () => {
 
 
       </Drawer>
-  </div>
+  </>
   )
 };
 
