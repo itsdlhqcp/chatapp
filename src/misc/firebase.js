@@ -1,9 +1,12 @@
+import { Notification as Toast } from 'rsuite';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
 import 'firebase/storage';
 import 'firebase/messaging';
 import 'firebase/functions';
+
+// import { isLocalhost } from './helper';
 
 const firebaseConfig = {
       apiKey: "AIzaSyD_doQXC6shRxqFuo3MqX80AjzdmhZ6sFM",
@@ -26,7 +29,13 @@ const firebaseConfig = {
    if(messaging) {
      messaging.usePublicVapidKey('BByenmQb1b155S3csmn1xwRd8yTHd8sbWDxPORFeiVwMaB1wrxDP2oNlCRc1pBs_lgsEHnbpj76J0vp_DjgTXUs');
 
-     messaging.onMessage(data => {
-       console.log(data);
-     })
+     messaging.onMessage(({notification}) => {
+       const { title, body } = notification
+       Toast.info({title, description: body, duration: 0})
+
+     });
    }
+
+  //  if(isLocalhost) {
+  //    functions.useFunctionsEmulator()
+  //  }

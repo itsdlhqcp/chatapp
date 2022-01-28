@@ -1,5 +1,5 @@
 import React, {memo} from 'react';
-import { Modal,Button } from 'rsuite';
+import { Modal,Button,Icon } from 'rsuite';
 import { useCurrentRoom } from '../../../context/current-room.context';
 import { useModalState } from '../../../misc/custom-hooks';
 
@@ -9,7 +9,7 @@ const RoomInfoBtnModal = () => {
     const name = useCurrentRoom(v => v.name);
   return <>
       <Button appearance="link" className="px-0" onClick={open}>
-          Room Information
+      <Icon icon="info" />
       </Button>
       <Modal show={isOpen} onHide={close}>
 
