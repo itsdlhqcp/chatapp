@@ -19,7 +19,7 @@ const renderFileMessage = (file) => {
 
     if(file.contentType.includes('image')) {
   return (
-     <div className="height-220">
+     <div className="height-220 mw-100">
     <ImgBtnModal src={file.url} fileName={file.name} />
   </div>
   );
@@ -32,7 +32,7 @@ const renderFileMessage = (file) => {
   return ( 
         
         // eslint-disable-next-line jsx-a11y/media-has-caption
-        <video controls className='height-220'>
+        <video controls className='height-220 mw-100'>
     <source src={file.url} type="audio/mp3" />
     video element unsupported
   </video>
@@ -43,7 +43,7 @@ const renderFileMessage = (file) => {
 
 if(file.contentType.includes('audio')) {
   // eslint-disable-next-line jsx-a11y/media-has-caption
-  return ( <audio controls>
+  return ( <audio controls className='mw-100'>
     <source src={file.url} type="audio/mp3" />
     Audio element unsupported
   </audio>

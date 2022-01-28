@@ -3,6 +3,7 @@ import 'firebase/auth';
 import 'firebase/database';
 import 'firebase/storage';
 import 'firebase/messaging';
+import 'firebase/functions';
 
 const firebaseConfig = {
       apiKey: "AIzaSyD_doQXC6shRxqFuo3MqX80AjzdmhZ6sFM",
@@ -18,6 +19,7 @@ const firebaseConfig = {
    export const auth = app.auth();
    export const database = app.database();
    export const storage = app.storage();
+   export const functions = app.functions('europe-west3');
 
    export const messaging = firebase.messaging.isSupported() ? app.messaging() : null; 
 
