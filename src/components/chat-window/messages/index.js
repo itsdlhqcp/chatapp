@@ -141,6 +141,37 @@ const { uid } = auth.currentUser;
 
 },[])
 
+const handleFire = useCallback(async(msgId) => {
+  const { uid } = auth.currentUser;
+  const messageRef = database.ref(`/messages/${msgId}`);
+
+  let alertMsg;
+
+  await messageRef.transaction(msg => {
+
+    if (msg) {
+      if (msg.fires && msg.fires[uid]) {
+        msg.fireCount -= 1 ;
+        msg.fires[uid] = null;
+        alertMsg = 'stone droped';
+      } else {
+        msg.fireCount += 1;
+
+        if(!msg.fires){
+          msg.fires = {};
+        }
+       msg.fires[uid] = true;
+       alertMsg = '⚡sparkled';
+      }
+    }
+    return msg;
+
+  });
+
+  Alert.info(alertMsg, 4000)
+
+}, [])
+
 const handleDelete = useCallback(async(msgId, file) => {
 
   // eslint-disable-next-line no-alert
@@ -209,6 +240,7 @@ const handleDelete = useCallback(async(msgId, file) => {
            handleAdmin={handleAdmin} 
            handleLike={handleLike}
            handleDelete={handleDelete}
+           handleFire={handleFire}
            />
             ));
             items.push(...msgs);

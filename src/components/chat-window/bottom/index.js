@@ -7,6 +7,8 @@ import { useProfile } from '../../../context/profile.context';
 import AttachmentBtnModel from './AttachmentBtnModel';
 import AudioMsgBtn from './AudioMsgBtn';
 
+import 'emoji-mart/css/emoji-mart.css';
+
 function assembleMessage(profile, chatId) {
   return {
       roomId: chatId,
@@ -18,6 +20,7 @@ function assembleMessage(profile, chatId) {
       },
       createdAt: firebase.database.ServerValue.TIMESTAMP,
       likeCount: 0,
+      fireCount: 0,
   };
 }
 

@@ -54,9 +54,9 @@ if(file.contentType.includes('audio')) {
 };
 
 
-const MessageItem = ({message, handleAdmin, handleLike,handleDelete}) => {
+const MessageItem = ({message, handleAdmin, handleLike,handleFire,handleDelete}) => {
 
-    const { author, createdAt, text,file,likes,likeCount } = message;
+    const { author, createdAt, text,file,likes,likeCount,fires,fireCount } = message;
 
     const [selfRef,isHovered]  = useHover();
     const isMobile = useMediaQuery(('(max-width: 992px)'));
@@ -70,6 +70,14 @@ const MessageItem = ({message, handleAdmin, handleLike,handleDelete}) => {
 
     const canShowIcons = isMobile || isHovered;
     const isLiked = likes && Object.keys(likes).includes(auth.currentUser.uid);
+    const isFired = fires && Object.keys(fires).includes(auth.currentUser.uid);
+
+    const timeLimit = 60000 * 20;
+    const timeDifferenceMs = new Date().getTime() - new Date(message.createdAt).getTime();
+    const cantDeleteAnymore = timeDifferenceMs <= timeLimit;
+
+
+
 
   return (
        <li className={`padded mb-1px cursor-pointer ${isHovered ? 'bg-black-02' : ''}`} ref={selfRef}>
@@ -111,15 +119,26 @@ const MessageItem = ({message, handleAdmin, handleLike,handleDelete}) => {
          iconName="heart"
          tooltip="Like this message" 
          onclick={()=> handleLike(message.id)}
+         
          badgeContent={likeCount}
+         />
+
+         <IconBtnControl
+         {...(isFired ? { color: 'orange'} : {})}
+         isVisible={canShowIcons}
+         iconName="fire"
+         tooltip="Fire this message" 
+         onclick={()=> handleFire(message.id)}
+         
+         badgeContent={fireCount}
          />
          
          
          
 
+        
 
-
-
+         {cantDeleteAnymore && <div>
 
          { isAuthor && ( 
          <IconBtnControl
@@ -131,6 +150,7 @@ const MessageItem = ({message, handleAdmin, handleLike,handleDelete}) => {
 
 
          )}
+         </div>}
 
 
 

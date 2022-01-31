@@ -20,7 +20,7 @@ const AskFcmBtnModal = () => {
        <>
        <IconButton
         icon={<Icon icon="podcast" />}
-         color='blue'
+         color='violet'
           size='sm'
            circle 
            appearance={isReceivingFcm ? 'default' : 'ghost'}

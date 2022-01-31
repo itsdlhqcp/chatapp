@@ -21,15 +21,16 @@ const Top = () => {
       </h4>
 
       
-      {isAdmin &&  
+        
       <ButtonToolbar className='ws-nowrap'>
-        <AskFcmBtnModal />
-        <EditRoomBtnDrawer />
-        </ButtonToolbar>}
+      <AskFcmBtnModal />
+        {isAdmin && <EditRoomBtnDrawer />}
+        </ButtonToolbar>
 
 
     </div>
     <div className='d-flex justify-content-between align-items-center'>
+    
          {isAdmin && <SendFcmBtnModal/>}
          <RoomInfoBtnModal />
     </div>
