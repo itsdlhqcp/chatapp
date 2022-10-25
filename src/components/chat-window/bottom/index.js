@@ -6,8 +6,9 @@ import { database } from '../../../misc/firebase';
 import { useProfile } from '../../../context/profile.context';
 import AttachmentBtnModel from './AttachmentBtnModel';
 import AudioMsgBtn from './AudioMsgBtn';
+import ImogiBtn from './ImogiBtn';
 
-import 'emoji-mart/css/emoji-mart.css';
+
 
 function assembleMessage(profile, chatId) {
   return {
@@ -113,9 +114,13 @@ const afterUpload = useCallback(async(files) => {
   return <div>
 
     <InputGroup>
-     <AttachmentBtnModel afterUpload={afterUpload}/>
-     <AudioMsgBtn afterUpload ={afterUpload} />
-    <Input placeholder="Write a new message here ..."
+
+    
+     
+    <AttachmentBtnModel afterUpload={afterUpload}/>
+    <ImogiBtn  />
+    <Input
+     placeholder="Write a new message here ..."
      value={input}
       onChange={onInputChange}
       onKeyDown={onKeyDown}/>
@@ -123,10 +128,15 @@ const afterUpload = useCallback(async(files) => {
     <InputGroup.Button color='blue' 
     appearance='primary' 
     onClick={onSendClick} disabled={isLoading}>
-      <Icon icon="send" />
+      <Icon icon="send-o" />
     </InputGroup.Button>
+    
+     <AudioMsgBtn afterUpload ={afterUpload} />
     </InputGroup>
   </div>;
+
+  
+
 };
 
 export default Bottom;

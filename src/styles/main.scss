@@ -10,7 +10,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-color: #1d443c;
+  background-color: #998c8c;
+
 }
 
 html,
@@ -30,7 +31,7 @@ body,
   }
 
   &::-webkit-scrollbar-thumb {
-    background: darken(#ddd, 20%);
+    background: darken(rgb(0, 0, 0), 20%);
   }
 }
 
@@ -53,7 +54,7 @@ body,
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: rgba(170, 170, 170, 0.959);
+  background: rgba(0, 0, 0, 0.959);
 }
 
 $chat-t: 75px;
@@ -68,20 +69,69 @@ $chat-b: 65px;
 .chat-bottom {
   height: $chat-b;
   border-radius: 1mm;
-  background: rgba(78, 47, 47, 0.959);
+  background: rgba(77, 69, 69, 0.959);
+}
+
+.Picker{
+  position: absolute;
+  background: rgba(77, 73, 74, 0.959);
 }
 
 .chat-middle {
   height: calc(100% - #{$chat-t} - #{$chat-b});
-  background: rgba(136, 24, 43, 0.959);
+  background: rgba(77, 73, 74, 0.959);
   border-radius: 1mm;
 }
+
+.recevedmessage{
+  background-color: rgb(88, 87, 87);
+  padding: 5px;
+  color: whitesmoke;
+  width: fit-content;
+  border-radius: 10px 10px 10px 0px;
+  margin-bottom: 10px;
+}
+
+.authormessage{
+  margin-left: auto;
+  background-color: rgb(56, 33, 33);
+  padding: 5px;
+  color: whitesmoke;
+  width: fit-content;
+  border-radius: 15px 0px 15px 15px;
+  margin-bottom: 10px;
+}
+
+// .msghead{
+  
+//   background-color:silver;
+//   padding: 5px;
+//   color: whitesmoke;
+//   width: fit-content;
+//   border-radius: 10px 10px 10px 10px;
+//   margin-bottom: 2px;
+  
+// }
+
+// .msgbox{
+//   background-color: rgb(75, 72, 72);
+//   padding: 5px;
+//   color: whitesmoke;
+//   width: fit-content;
+//   border-radius: 10px 10px 10px 0px;
+//   margin-bottom: 10px;
+// }
+
+.joinconv{
+  color: rgb(233, 222, 123);
+}
+
 
 .msg-list {
   padding: 0;
   margin: 0;
   height: 100%;
-  background: rgba(255, 254, 254, 0.959);
+  background: rgba(170, 170, 81, 0.959);
   overflow-y: auto;
   list-style-type: none;
   li {
@@ -94,7 +144,7 @@ $chat-b: 65px;
 
 .animate-blink {
   animation: blink normal 1.5s infinite ease-in-out;
-  color: rgb(19, 19, 19) !important;
+  color: rgb(243, 2, 2) !important;
   @keyframes blink {
     0% {
       opacity: 1;

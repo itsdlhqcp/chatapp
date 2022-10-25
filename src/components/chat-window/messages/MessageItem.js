@@ -11,9 +11,6 @@ import ProfileInfoBtnModal from './ProfileInfoBtnModal';
 import ImgBtnModal from './ImgBtnModal';
 
 
-
-
-
 const renderFileMessage = (file) => {
 
 
@@ -80,9 +77,10 @@ const MessageItem = ({message, handleAdmin, handleLike,handleFire,handleDelete})
 
 
   return (
-       <li className={`padded mb-1px cursor-pointer ${isHovered ? 'bg-black-02' : ''}`} ref={selfRef}>
-
-      <div className='d-flex align-items-center  font-bolder mb-1'>
+    
+       <li className={  `padded mb-1px cursor-pointer ${isHovered ? 'bg-black-02' : ''}`} ref={selfRef}>
+ <div className='msgbox'>
+      <div className='msghead d-flex align-items-center  font-bolder mb-1'>
           <PresenceDot uid={author.uid} />
 
           <ProfileAvatar src={author.avatar}
@@ -111,6 +109,7 @@ const MessageItem = ({message, handleAdmin, handleLike,handleFire,handleDelete})
       <TimeAgo 
       datetime={createdAt} 
       className="font-normal text-black-45 ml-2"
+      size="xs"
       />
 
          <IconBtnControl
@@ -119,7 +118,7 @@ const MessageItem = ({message, handleAdmin, handleLike,handleFire,handleDelete})
          iconName="heart"
          tooltip="Like this message" 
          onclick={()=> handleLike(message.id)}
-         
+         size="xs"
          badgeContent={likeCount}
          />
 
@@ -129,7 +128,7 @@ const MessageItem = ({message, handleAdmin, handleLike,handleFire,handleDelete})
          iconName="fire"
          tooltip="Fire this message" 
          onclick={()=> handleFire(message.id)}
-         
+         size="xs"
          badgeContent={fireCount}
          />
          
@@ -146,6 +145,7 @@ const MessageItem = ({message, handleAdmin, handleLike,handleFire,handleDelete})
          iconName="close"
          tooltip="Delete this message" 
          onclick={()=> handleDelete(message.id, file)}
+         size="xs"
          />
 
 
@@ -157,9 +157,18 @@ const MessageItem = ({message, handleAdmin, handleLike,handleFire,handleDelete})
 
       </div>
 
-      <div>
+      <div>{isAuthor ? <div className='authormessage'>
         {text && <span className='word-breal-all font-bolder text-black-200 rs-placeholder-paragraph-graph-circle placement-right'>{text}</span> }
           { file && renderFileMessage(file)}
+      </div> : <div className='recevedmessage'>
+        {text && <span className='word-breal-all font-bolder text-black-200 rs-placeholder-paragraph-graph-circle placement-right'>{text}</span> }
+          { file && renderFileMessage(file)}
+      </div>}</div>
+
+
+
+
+      
       </div>
   </li>
   )

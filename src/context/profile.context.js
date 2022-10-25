@@ -72,7 +72,7 @@ export const ProfileProvider = ({ children }) => {
                         .set(authObj.uid);
                       } 
                 } catch (err) {
-                     console.log('An error occurred while retrieving token. ', err);
+                     Error('An error occurred while retrieving token. ', err);
 
                 }
 
@@ -84,8 +84,9 @@ export const ProfileProvider = ({ children }) => {
                          .ref(`/fcm_tokens/${currentToken}`)
                          .set(authObj.uid);
                      }
-                     } catch (err) {
-                         console.log('An error occurred while retrieving token. ', err )
+                     }
+                      catch (err) {
+                         Error('An error occurred while retrieving token. ', err )
                      }
                  
              })
